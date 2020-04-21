@@ -1,6 +1,7 @@
 /*
 https://balau82.wordpress.com/2011/03/29/programming-arduino-uno-in-pure-c/
 https://github.com/balau/arduino_c/blob/master/blink/blink.c
+https://efundies.com/src/avr/avr_printf.c  ...for printf in serial mode
 */
 	
 #include <avr/io.h>
