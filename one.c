@@ -4,6 +4,7 @@
 #include "strmap.h"
 #include <stdint.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 /********************************************************************************
 Macros and Defines
@@ -12,7 +13,7 @@ Macros and Defines
 #define OPERAND 8
 #define NUMBER 32
 
-#define SIZE 20
+#define SIZE 26
 
 /********************************************************************************
 Function Prototypes
@@ -22,9 +23,9 @@ Function Prototypes
 /********************************************************************************
 macros for modes, uncomment the mode you want
 ********************************************************************************/
-//#define BINARY_MODE 1
+#define BINARY_MODE 1
 //#define BLINK_MODE 0
-#define MORSE_MODE 2
+//#define MORSE_MODE 2
 /********************************************************************************
 morse mode related
 ********************************************************************************/
@@ -82,7 +83,7 @@ void insert(char key,char* data) {
    hashArray[hashIndex] = item;
 }
 /********************************************************************************
-led functions
+led related and delay
 ********************************************************************************/
 
 //Delay function
@@ -238,7 +239,7 @@ int main (void)
    // morse= strcat(morse,item->data);
    // printf("%s",morse);
 
-   char word[5]="aabc";
+   char word[5]="aa";
    for(int i=0;word[i]!='\0';i++)
    {
    	item =search(word[i]);
@@ -248,8 +249,8 @@ int main (void)
 
     while(* morse !='\0')
    {
-   	if(*morse=='-'){led_is_on();}
-   	else{led_is_off();}
+   	if(*morse=='-'){led_is_on();_delay_ms(BLINK_DELAY_MS);led_is_off();}
+   	else{led_is_off();_delay_ms(BLINK_DELAY_MS);}
    	morse++;
    }
 
@@ -258,11 +259,11 @@ int main (void)
 
 
  	led_is_on();
- 	_delay_ms(0.5*BLINK_DELAY_MS);
-	led_is_off();
-	_delay_ms(0.5*BLINK_DELAY_MS);
+ 	//_delay_ms(0.5*BLINK_DELAY_MS);
+	//led_is_off();
+	//_delay_ms(0.5*BLINK_DELAY_MS);
 	//STOP BIT   
  }
-
+ 	
  return 0;
 }
