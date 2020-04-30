@@ -114,6 +114,7 @@ int main() {
    morse=(char *)malloc(1000*sizeof(char));
    Log();
    printf("\nCommencing...");
+   printf("\n********************************************************");
    printf("\n\n\n");
    char word[6]="hello";
    
@@ -125,6 +126,8 @@ int main() {
 
    }
    printf("%s",morse);
+   printf("\n\n\n");
+   printf("\n******************************************************");
    printf("\nLED action is");
    while(* morse !='\0')
    {
